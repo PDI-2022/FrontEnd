@@ -1,1 +1,62 @@
-Teste
+<!doctype html>
+<html lang="pt">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    <title>TetraSeed - Ferramenta de Classificação de sementes</title>
+    <link rel="icon" type="image/x-icon" href="Assets/Logo/logo.png">
+    <link href="stylesheets/style.css" rel="stylesheet">
+
+  </head>
+  <body style="background-color: #8D3B30">
+    <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
+        <a class="navbar-brand" href="#" style="display: flex;">
+            <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <div style="color: white; padding-left: 12px;">TetraSeed </div>
+        </a>
+    </nav>
+    <div style="background-color: #fff; padding: 6px 0;" ></div>
+
+    <section class="container-section">
+        <div class="container container-drag">
+            <label class="drag-title">Parte externa da semente</label>
+            <div class="drag-section-external">
+                <div class="drag-section-internal">
+                    <div class="drag-drop" style="display: flex; justify-content: center; align-items: center;" ondrop="dropHandler(event,'externo');"
+                    ondragover="dragOverHandler(event,'externo');">
+                        <div class="drag-text">
+                            <label>Arraste e solte as imagens aqui!</label>
+                            <input type="file" name="file" id="imgExt" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-drag">
+            <label class="drag-title">Parte interna da semente</label>
+            <div class="drag-section-external">
+                <div class="drag-section-internal">
+                    <div class="drag-drop" id="drag-drop" style="display: flex; justify-content: center; align-items: center;" ondrop="dropHandler(event,'interna');"
+                    ondragover="dragOverHandler(event,'interna');">
+                        <div class="drag-text">
+                            <label>Arraste e solte as imagens aqui!</label>
+                            <input type="file" name="file" id="imgExt" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section >
+    <div id="botao" class="mt-5">
+        <button type="button" class=" btn btn-secondary botaoEnviar">Prosseguir</button>
+    </div>
+  </body>
+  <script src="JS/index.js"></script>
+
+</html>
