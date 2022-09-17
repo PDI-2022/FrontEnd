@@ -24,32 +24,49 @@
     <div style="background-color: #fff; padding: 6px 0;" ></div>
 
     <section class="container-section">
-        <div class="container container-drag">
+        <div class="container container-drag ext">
             <label class="drag-title">Parte externa da semente</label>
             <div class="drag-section-external">
                 <div class="drag-section-internal">
-                    <div class="drag-drop" style="display: flex; justify-content: center; align-items: center;" ondrop="dropHandler(event,'externo');"
-                    ondragover="dragOverHandler(event,'externo');">
+                    <div class="drag-drop" style="display: flex; justify-content: center; align-items: center;" ondrop="dropHandler(event,'externa');"
+                    ondragover="dragOverHandler(event,'externa');">
                         <div class="drag-text">
-                            <label>Arraste e solte as imagens aqui!</label>
-                            <input type="file" name="file" id="imgExt" style="display: none;">
+                            <label>Arraste e solte as imagens aqui!
+                                <p style="font-weight: normal;">arquivos aceitos: .jpeg, .jpg</p>
+                            </label>                            <input type="file" name="file" id="imgExt" style="display: none;"accept="image/*">
+                            <button class="upload-button">
+                                <label for="imgButtonExt">Ou faça o upload clicando aqui!!</label>
+                                <input style="display: none;" type="file" name="imgButtonExt" 
+                                id="imgButtonExt" name="filename" placeholder="imgButtonExt" onchange="uploadImgInput(event,'externa')">                                
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="imgExtIconContainer">
+            </div>
         </div>
-        <div class="container container-drag">
+        <div class="container container-drag int">
             <label class="drag-title">Parte interna da semente</label>
             <div class="drag-section-external">
                 <div class="drag-section-internal">
                     <div class="drag-drop" id="drag-drop" style="display: flex; justify-content: center; align-items: center;" ondrop="dropHandler(event,'interna');"
                     ondragover="dragOverHandler(event,'interna');">
                         <div class="drag-text">
-                            <label>Arraste e solte as imagens aqui!</label>
-                            <input type="file" name="file" id="imgExt" style="display: none;">
+                            <label>Arraste e solte as imagens aqui!
+                                <p style="font-weight: normal;">arquivos aceitos: .jpeg, .jpg</p>
+                            </label>
+                            <input type="file" name="file" id="imgInt" style="display: none;" accept="image/*">
+                            <button class="upload-button">
+                                <label for="imgButtonInt">Ou faça o upload clicando aqui!!</label>
+                                <input style="display: none;" type="file" name="imgButtonInt" 
+                                id="imgButtonInt" name="filename" placeholder="imgButtonInt" onchange="uploadImgInput(event,'interna')">                                
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="imgIntIconContainer">
             </div>
         </div>
     </section >
