@@ -41,13 +41,36 @@ function get() {
         if (this.readyState !== 4) {
             new Promise(() => {
                 $('#modal-comp').modal('show');
-            });
+                
+            },5000);
         }
         if (this.readyState === 4) {
             console.log(req.response);
-            $('#modal-comp').modal('hide');
+            //$('#modal-comp').modal('hide');
         }
     });
-    req.open('GET', uri, false);
+    req.open('GET', uri, true);
     req.send('');
+}
+
+function habilitarBotao(){
+    // let imgExt = document.querySelector(".imgExtIconContainer");
+    // let imgInt = document.querySelector(".imgIntIconContainer");
+    let button = document.querySelector(".button");
+    let imgExt = document.querySelector(".imgExtIconContainer").value;
+    let imgInt = document.querySelector(".imgIntIconContainer").value;
+
+    if (imgExt !== "" && imgExt !== "") {
+        button.disabled = false; 
+      } else {
+        button.disabled = true;
+      }
+    // $('.imgExtIconContainer').on('label change', function () {
+    //     if ($(this).val() != '') {
+    //         $('#submit').prop('disabled', false);
+    //     }
+    //     else {
+    //         $('#submit').prop('disabled', true);
+    //     }
+    // });
 }
