@@ -11,6 +11,7 @@ function dropHandler(event, input) {
         if (item.length > 0) {
             const itemAsFile = item[0].getAsFile()
             makeBlob(input, itemAsFile)
+            stateHandle();
         }
         else {
             throw new Error("Arquivo com problema")
@@ -43,17 +44,12 @@ function get() {
     req.send('');
 }
 
-let inputExt = document.querySelector("#imgButtonExt");
-let inputInt = document.querySelector("#imgButtonInt");
 let button = document.querySelector(".botaoEnviar");
 button.disabled = true;
-inputExt.addEventListener("change", stateHandle);
-inputInt.addEventListener("change", stateHandle);
-
+let buttonExt = false;
+let buttonInt = false;
 function stateHandle() {
-    let imgExt = document.querySelector("#imgButtonExt").value;
-    let imgInt = document.querySelector("#imgButtonInt").value;
-    if (imgExt !== "" && imgInt !== "") {
+    if (buttonExt && buttonInt) {
         button.disabled = false;
     } else {
         button.disabled = true;
@@ -66,12 +62,11 @@ function uploadImgInput(event, input) {
     }
     if (event.target.files.length > 0) {
         makeBlob(input, event.target.files[0])
-
+        stateHandle();
     }
 }
 
 function makeBlob(input, itemAsFile) {
-
     const name = itemAsFile.name
     if (name.endsWith(".jpeg") || name.endsWith(".jpg")) {
         var reader = new FileReader();
@@ -81,13 +76,23 @@ function makeBlob(input, itemAsFile) {
                 "base64": `${reader.result}`
             };
             var showIconAndName = false
-            if (!localStorage.getItem(input))
-                showIconAndName = true
+            if (!localStorage.getItem(input)) {
+                showIconAndName = true;
+            }
             localStorage.setItem(input, JSON.stringify(json));
-            if (showIconAndName == true)
-                showTextAndIcon(input, name)
+            if (showIconAndName == true) {
+                showTextAndIcon(input, name);
+            } else {
+                updateTextAndIcon(input, name);
+            }
         }
         reader.readAsDataURL(itemAsFile);
+        if (input === "interna") {
+            buttonInt = true;
+        }
+        if (input === "externa") {
+            buttonExt = true;
+        }
     }
     else {
         const formatInvalid = name.substring(name.lastIndexOf("."))
@@ -95,10 +100,16 @@ function makeBlob(input, itemAsFile) {
             " da semente:\nFormato inválido " + `${formatInvalid}`)
     }
 }
+function updateTextAndIcon(input, name) {
+    let id = `img-label-${input}`;
+    let imgLabel = document.querySelector("#" + id);
+    imgLabel.innerHTML = name;
+}
 function showTextAndIcon(input, name) {
     var elem1 = document.createElement('img')
     elem1.src = "Assets/Icons/imgUpload.svg"
     var elem2 = document.createElement('label');
+    elem2.setAttribute('id', `img-label-${input}`);
     elem2.innerHTML = name;
     elem2.classList.add("label-icon-upload")
     if (input == "externa") {
