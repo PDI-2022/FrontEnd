@@ -16,6 +16,7 @@ body {
 .navbar {
     background-color: #712F26;
 }
+
 .drag-section-external {
     background-color: #D9D9D9;
     width: 500px;
@@ -92,11 +93,19 @@ body {
 
 }
 
-#botao {
+.botao {
     text-align: center
 }
 
 .botaoEnviar {
+    width: 20%;
+}
+
+.botaoDownload {
+    width: 20%;
+}
+
+.botaoVoltar {
     width: 20%;
 }
 
@@ -131,36 +140,42 @@ body {
 #modal-alert {
     font-size: 24px;
 }
-.upload-button{
+
+.upload-button {
     background-color: #5A261E;
     border: none;
     border-radius: 22px;
 }
-.upload-button label{
+
+.upload-button label {
     padding: 4px 12px;
     color: #D8D8D8;
     font-size: 14px;
-    font-weight:normal;
+    font-weight: normal;
     margin: 4px;
 }
-.label-icon-upload{
+
+.label-icon-upload {
     color: #D8D8D8;
     font-size: 32px;
     font-weight: normal;
 }
+
 .imgIntIconContainer,
-.imgExtIconContainer{
+.imgExtIconContainer {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
 }
-h5, h6 {
+
+h6 {
     color: white;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     padding-bottom: 15px;
 }
+
 @media screen and (max-width: 1060px) {
 
     .drag-title {

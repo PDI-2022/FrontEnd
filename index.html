@@ -14,12 +14,10 @@
     <title>TetraSeed - Ferramenta de Classificação de sementes</title>
     <link rel="icon" type="image/x-icon" href="Assets/Logo/logo.png">
     <link href="stylesheets/style.css" rel="stylesheet">
-
 </head>
 
 <body style="background-color: #8D3B30">
     <main-header></main-header>
-    <div style="background-color: #fff; padding: 6px 0;"></div>
     <section class="container-section">
         <div class="container container-drag ext">
             <label class="drag-title">Parte externa da semente</label>
@@ -67,28 +65,9 @@
             <div class="imgIntIconContainer">
             </div>
         </div>
-        <div class="modal" id="modal-comp" role="dialog">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <div class="spinner-border"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label id="modal-alert" class="form-text text-muted">
-                                    Estamos processando as imagens...
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <modal-loading></modal-loading>
     </section>
-    <div id="botao" class="mt-5">
+    <div class="mt-5 botao">
         <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="get()">Prosseguir</button>
     </div>
     <main-footer></main-footer>
