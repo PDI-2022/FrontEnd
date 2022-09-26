@@ -31,7 +31,11 @@ function get() {
     req.addEventListener("readystatechange", function () {
         if (this.readyState !== 4) {
             new Promise(() => {
-                $('#modal-comp').modal('show');
+                $('#modal-comp').modal({
+                    show:true,
+                    backdrop: 'static',
+                    keyboard: false
+                });
 
             }, 5000);
         }
