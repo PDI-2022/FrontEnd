@@ -25,9 +25,19 @@ function dropHandler(event, input) {
 function dragOverHandler(event, input) {
     event.preventDefault();
 }
-var uri = "https://api.adviceslip.com/advice";
-function get() {
+async function sendToBack() {
     var req = new XMLHttpRequest();
+    var url = "http://localhost:3000/teste"
+    req.open('POST',url,true)
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    var internaToBack = localStorage.getItem("interna")
+    var externaToBack = localStorage.getItem("externa")
+
+    data = {
+        internaToBack,
+        externaToBack
+    }
     req.addEventListener("readystatechange", function () {
         if (this.readyState !== 4) {
             new Promise(() => {
@@ -36,16 +46,17 @@ function get() {
                     backdrop: 'static',
                     keyboard: false
                 });
-
-            }, 5000);
+                
+            }, rej=>{
+                console.error(rej)
+            });
         }
         if (this.readyState === 4) {
             console.log(req.response);
             //$('#modal-comp').modal('hide');
         }
     });
-    req.open('GET', uri, true);
-    req.send('');
+    req.send(JSON.stringify(data))
 }
 
 let button = document.querySelector(".botaoEnviar");
