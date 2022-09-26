@@ -1,7 +1,13 @@
-@font-face { font-family: NovaFlat; src: url('fonts/NovaFlat-Regular.ttf'); } 
-label{
-    font-family: NovaFlat, arial, serif;;
+@font-face {
+    font-family: NovaFlat;
+    src: url('fonts/NovaFlat-Regular.ttf');
 }
+
+label {
+    font-family: NovaFlat, arial, serif;
+    ;
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -42,7 +48,7 @@ body {
 .drag-title {
     font-size: 32px;
     font-weight: bold;
-
+    color: white;
 }
 
 .container-drag {
@@ -59,9 +65,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-top: 280px
+    margin-top: 8%;
 }
-.drag-text{
+
+.drag-text {
     background-image: url("../Assets/Icons/dragAndDropBackground.svg");
     background-size: 200px 180px;
     background-repeat: no-repeat;
@@ -69,27 +76,80 @@ body {
     width: 100%;
     height: 180px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     align-content: center;
 }
-.drag-text label{
+
+.drag-text label {
     font-size: 24px;
     text-align: center;
     font-weight: bold;
 
 }
-#botao{ text-align: center }
-.botaoEnviar{
-    width: 350px;
-    text-align: center;
-    padding: 15px 20px;
-    border: 1px solid #AAAAAA;
-    border-radius: 22px;
-    color: black;
-    background-color: #D9D9D9;
-    font-size: 18px;
 
+#botao {
+    text-align: center
+}
+
+.botaoEnviar {
+    width: 20%;
+}
+
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-body {
+    font-size: 24px;
+    background-color: transparent;
+    background-image: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-position: initial;
+}
+
+#modal-alert {
+    font-size: 24px;
+}
+.upload-button{
+    background-color: #5A261E;
+    border: none;
+    border-radius: 22px;
+}
+.upload-button label{
+    padding: 4px 12px;
+    color: #D8D8D8;
+    font-size: 14px;
+    font-weight:normal;
+    margin: 4px;
+}
+.label-icon-upload{
+    color: #D8D8D8;
+    font-size: 32px;
+    font-weight: normal;
+}
+.imgIntIconContainer,
+.imgExtIconContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 
 @media screen and (max-width: 1060px) {
@@ -100,8 +160,7 @@ body {
 
     .container-section {
         flex-direction: column;
-        gap:24px;
-        margin-top: 120px
+        gap: 24px;
     }
 
     .drag-section-external {
