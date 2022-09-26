@@ -25,19 +25,23 @@ function dropHandler(event, input) {
 function dragOverHandler(event, input) {
     event.preventDefault();
 }
-var uri = "https://api.adviceslip.com/advice";
+var uri = "http://localhost:5000/api/Solicitacoes/ObterCsv";
 function get() {
     var req = new XMLHttpRequest();
     req.addEventListener("readystatechange", function () {
         if (this.readyState !== 4) {
             new Promise(() => {
                 $('#modal-comp').modal('show');
-
-            }, 5000);
+            });
         }
         if (this.readyState === 4) {
-            console.log(req.response);
-            //$('#modal-comp').modal('hide');
+            setTimeout(() => {
+                const obj = JSON.parse(req.response);
+                console.log(obj);
+                sessionStorage.setItem('arquivoCsv', JSON.stringify(obj));
+                $('#modal-comp').modal('hide');
+                location.href = 'download.html';
+            }, 2000);
         }
     });
     req.open('GET', uri, true);
@@ -45,7 +49,7 @@ function get() {
 }
 
 let button = document.querySelector(".botaoEnviar");
-button.disabled = true;
+button.disabled = false;
 let buttonExt = false;
 let buttonInt = false;
 function stateHandle() {
@@ -107,11 +111,11 @@ function updateTextAndIcon(input, name) {
 }
 function showTextAndIcon(input, name) {
     var elem1 = document.createElement('img')
-    elem1.src = "Assets/Icons/imgUpload.svg"
+    elem1.src = "Assets/Icons/imgUpload.svg";
     var elem2 = document.createElement('label');
     elem2.setAttribute('id', `img-label-${input}`);
     elem2.innerHTML = name;
-    elem2.classList.add("label-icon-upload")
+    elem2.classList.add("label-icon-upload");
     if (input == "externa") {
         document.getElementsByClassName('imgExtIconContainer')[0].appendChild(elem1);
         document.getElementsByClassName('imgExtIconContainer')[0].appendChild(elem2);

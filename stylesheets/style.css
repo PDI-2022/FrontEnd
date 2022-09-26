@@ -93,6 +93,12 @@ body {
 
 }
 
+#img-arquivo {
+    font-size: 20px;
+    color: white;
+    margin: 5px;
+}
+
 .botao {
     text-align: center
 }
@@ -101,8 +107,10 @@ body {
     width: 20%;
 }
 
-.botaoDownload {
-    width: 20%;
+#botaoDownload {
+    width: 30%;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .botaoVoltar {

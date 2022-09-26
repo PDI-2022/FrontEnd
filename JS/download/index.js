@@ -1,6 +1,24 @@
+window.onload = function () {
+    var arquivoCsv = sessionStorage.getItem('arquivoCsv');
+    const arquivo = JSON.parse(arquivoCsv);
+
+    var elem1 = document.createElement('img')
+    elem1.src = "Assets/Icons/imgUpload.svg";
+    var elem2 = document.createElement('label');
+    elem2.setAttribute('id', `img-arquivo`);
+    elem2.innerHTML = arquivo.nome;
+    document.getElementsByClassName('arquivo')[0].appendChild(elem1);
+    document.getElementsByClassName('arquivo')[0].appendChild(elem2);
+
+    console.log(arquivo);
+}
 function goback() {
     location.href = 'index.html';
 }
+// function downloadCsv() {
+//     var url = '';
+//     window.open(url, "_blank");
+// }
 function download() {
     var req = new XMLHttpRequest();
     req.addEventListener("readystatechange", function () {
