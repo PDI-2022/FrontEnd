@@ -132,6 +132,7 @@ body {
     background-color: #5A261E;
     border: none;
     border-radius: 22px;
+    cursor: pointer;
 }
 .upload-button label{
     padding: 4px 12px;
@@ -139,6 +140,7 @@ body {
     font-size: 14px;
     font-weight:normal;
     margin: 4px;
+    cursor: pointer;
 }
 .label-icon-upload{
     color: #D8D8D8;
