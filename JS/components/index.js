@@ -61,6 +61,33 @@ class ModalLoading extends HTMLElement {
       `
     }
 }
+class DownloadSection extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = ` 
+        <section class="container-section">
+            <div class="container">
+                <div class="mt-5 botao">
+                    <button type="button" class="btn btn-danger btn-lg" id="botaoDownload" onclick="downloadCsv()">Download</button>
+                    <div class="arquivo"></div>
+                </div>
+                <div class="mt-5 botao">
+                    <button 
+                        type="button" 
+                        class="btn btn-secondary btn-lg botaoVoltar" 
+                        data-toggle="tooltip" 
+                        data-placement="right" 
+                        title="Clique aqui para voltar a tela de envio de imagens"
+                        onclick="goback()"
+                    >
+                        Voltar
+                    </button>
+                </div>
+            </div>
+        </section>
+      `
+    }
+}
 customElements.define('main-header', Header);
 customElements.define('main-footer', Footer);
 customElements.define('modal-loading', ModalLoading);
+customElements.define('download-section', DownloadSection);

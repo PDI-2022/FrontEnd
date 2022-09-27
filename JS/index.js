@@ -53,9 +53,13 @@ function get() {
 }
 
 let button = document.querySelector(".botaoEnviar");
-button.disabled = false;
+button.disabled = true;
 let buttonExt = false;
 let buttonInt = false;
+
+let download_section = document.querySelector("#download-section");
+download_section.style.display = 'none';
+
 function stateHandle() {
     if (buttonExt && buttonInt) {
         button.disabled = false;
