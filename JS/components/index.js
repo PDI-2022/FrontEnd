@@ -1,10 +1,11 @@
 class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">                <a class="navbar-brand" href="#" style="display: flex;">
-                    <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                    <div style="color: white; padding-left: 12px;">TetraSeed </div>
-                </a>
+        <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
+            <a class="navbar-brand" onclick="returnHome()" style="display: flex; cursor: pointer;">
+                <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <div style="color: white; padding-left: 12px;">TetraSeed </div>
+            </a>
         </nav>
         <div style="background-color: #fff; padding: 6px 0;"></div>
           `
