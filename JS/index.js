@@ -1,33 +1,26 @@
 window.onload = function () {
     localStorage.clear()
 }
-function dropHandler(event, input) {
-    try {
-        event.preventDefault();
-        if (input != "interna" && input != "externa") {
-            throw new Error("Problema com o tipo do input informado")
-        }
-        const item = event.dataTransfer.items
-        if (item.length > 0) {
-            const itemAsFile = item[0].getAsFile()
-            makeBlob(input, itemAsFile)
-            stateHandle();
-        }
-        else {
-            throw new Error("Arquivo com problema")
-        }
-    }
-    catch (err) {
-        console.error(err)
+function returnHome(){
+    window.location.href = '/index.html'
+}
+
+async function sendToBack() {
+    var req = new XMLHttpRequest();
+    const url = new String("http://127.0.0.1:5000/api/v1/upload")
+
+    req.open('POST',url,true)
+
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    var internalImg = localStorage.getItem("interna")
+    var externalImg = localStorage.getItem("externa")
+
+    data = {
+        internalImg,
+        externalImg
     }
 
-}
-function dragOverHandler(event, input) {
-    event.preventDefault();
-}
-var uri = "https://api.adviceslip.com/advice";
-function get() {
-    var req = new XMLHttpRequest();
     req.addEventListener("readystatechange", function () {
         if (this.readyState !== 4) {
             new Promise(() => {
@@ -36,74 +29,33 @@ function get() {
                     backdrop: 'static',
                     keyboard: false
                 });
-
-            }, 5000);
+                
+            }, rej=>{
+                console.error(rej)
+            });
         }
-        if (this.readyState === 4) {
-            console.log(req.response);
-            //$('#modal-comp').modal('hide');
+        if (this.readyState === 4 && req.status != 200) {
+            console.error(req.response);
+        }
+        else if(req.status == 200){
+            localStorage.setItem("csv",req.response)
+            setInterval(function(){
+                $('#modal-comp').modal('hide'); 
+              }, 5000);
         }
     });
-    req.open('GET', uri, true);
-    req.send('');
+    req.send(JSON.stringify(data))
 }
 
 let button = document.querySelector(".botaoEnviar");
 button.disabled = true;
 let buttonExt = false;
 let buttonInt = false;
+
 function stateHandle() {
-    if (buttonExt && buttonInt) {
-        button.disabled = false;
-    } else {
-        button.disabled = true;
-    }
+    button.disabled = buttonExt && buttonInt ? false : true
 }
 
-function uploadImgInput(event, input) {
-    if (input != "interna" && input != "externa") {
-        throw new Error("Problema com o tipo do input informado")
-    }
-    if (event.target.files.length > 0) {
-        makeBlob(input, event.target.files[0])
-        stateHandle();
-    }
-}
-
-function makeBlob(input, itemAsFile) {
-    const name = itemAsFile.name
-    if (name.endsWith(".jpeg") || name.endsWith(".jpg")) {
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            var json = {
-                "fileName": `${name}`,
-                "base64": `${reader.result}`
-            };
-            var showIconAndName = false
-            if (!localStorage.getItem(input)) {
-                showIconAndName = true;
-            }
-            localStorage.setItem(input, JSON.stringify(json));
-            if (showIconAndName == true) {
-                showTextAndIcon(input, name);
-            } else {
-                updateTextAndIcon(input, name);
-            }
-        }
-        reader.readAsDataURL(itemAsFile);
-        if (input === "interna") {
-            buttonInt = true;
-        }
-        if (input === "externa") {
-            buttonExt = true;
-        }
-    }
-    else {
-        const formatInvalid = name.substring(name.lastIndexOf("."))
-        window.alert("Ocorreu um erro com o upload da imagem " + `${input}` +
-            " da semente:\nFormato inválido " + `${formatInvalid}`)
-    }
-}
 function updateTextAndIcon(input, name) {
     let id = `img-label-${input}`;
     let imgLabel = document.querySelector("#" + id);
