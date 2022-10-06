@@ -14,18 +14,11 @@
     <title>TetraSeed - Ferramenta de Classificação de sementes</title>
     <link rel="icon" type="image/x-icon" href="Assets/Logo/logo.png">
     <link href="stylesheets/style.css" rel="stylesheet">
-
 </head>
 
 <body style="background-color: #8D3B30">
-    <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
-        <a class="navbar-brand" onclick="returnHome()" style="display: flex; cursor: pointer;">
-            <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <div style="color: white; padding-left: 12px;">TetraSeed </div>
-        </a>
-    </nav>
-    <div style="background-color: #fff; padding: 6px 0;"></div>
-    <section class="container-section">
+    <main-header></main-header>
+    <section class="container-section" id="main-section">
         <div class="container container-drag ext">
             <label class="drag-title">Parte externa da semente</label>
             <div class="drag-section-external">
@@ -72,34 +65,18 @@
             <div class="imgIntIconContainer">
             </div>
         </div>
-        <div class="modal" id="modal-comp" role="dialog">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <div class="spinner-border"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label id="modal-alert" class="form-text text-muted">
-                                    Estamos processando as imagens...
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <modal-loading></modal-loading>
+        <div id="botao" class="mt-5">
+            <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Prosseguir</button>
         </div>
     </section>
-    <div id="botao" class="mt-5">
-        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Prosseguir</button>
-    </div>
+    <download-section id="download-section"></download-section>
+    <main-footer></main-footer>
 </body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="JS/drag-n-drop.js"></script>
 <script src="JS/index.js"></script>
+<script src="JS/components/index.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
