@@ -1,3 +1,7 @@
+var json={
+    "interna":"",
+    "externa":""
+}
 function dropHandler(event, input) {
     try {
         event.preventDefault();
@@ -33,20 +37,20 @@ function uploadImgInput(event, input) {
 }
 
 function makeBlob(input, itemAsFile) {
+    var showIconAndName = false
+
+    if (json[input] == "") {
+        showIconAndName = true;
+    }
     const name = new String(itemAsFile.name)
     if (name.endsWith(".jpeg") || name.endsWith(".jpg")) {
         var reader = new FileReader();
         reader.onloadend = function () {
-            var json = {
+            json[input] = {
                 "filename": `${name.substring(0,name.lastIndexOf("."))}`,
                 "image": `${reader.result.split("data:image/jpeg;base64,")[1]}`,
                 "extension": `${name.substring(name.lastIndexOf(".")+1)}`
-            };
-            var showIconAndName = false
-            if (!localStorage.getItem(input)) {
-                showIconAndName = true;
             }
-            localStorage.setItem(input, JSON.stringify(json));
             if (showIconAndName == true) {
                 showTextAndIcon(input, name);
             } else {

@@ -3,7 +3,7 @@ class Header extends HTMLElement {
         this.innerHTML = `
         <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
             <a class="navbar-brand" onclick="returnHome()" style="display: flex; cursor: pointer;">
-                <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="/static/Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 <div style="color: white; padding-left: 12px;">TetraSeed </div>
             </a>
         </nav>
@@ -78,7 +78,7 @@ class DownloadSection extends HTMLElement {
                         data-toggle="tooltip" 
                         data-placement="right" 
                         title="Clique aqui para voltar a tela de envio de imagens"
-                        onclick="goback()"
+                        onclick="goBack()"
                     >
                         Voltar
                     </button>
