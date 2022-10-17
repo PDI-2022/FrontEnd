@@ -175,9 +175,12 @@ body {
 
 .imgIntIconContainer,
 .imgExtIconContainer {
-    display: flex;
+    padding: 10px;
+    display: block;
     flex-direction: row;
-    align-items: flex-end;
+    text-align: center;
+    align-items: center;
+    margin: 0px auto;
 }
 
 h6 {
