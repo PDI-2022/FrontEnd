@@ -1,0 +1,61 @@
+#error-modal-container {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  z-index: 100;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  background-color: rgba(247, 212, 212, 0.9);
+}
+
+#error-modal-container .error-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#error-modal-container .error-icon {
+  weight: 50px;
+  width: 50px;
+}
+
+#error-modal-container .error-text {
+  width: 514px;
+  height: 39px;
+
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+
+  color: #ae1e1e;
+}
+
+#error-modal-container .error-button {
+  width: 300px;
+  height: 60px;
+  background: #d92626;
+  border: none;
+  border-radius: 30px;
+
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fafafa;
+}
+
+#error-modal-container .error-button:hover {
+  background: #d92626dd;
+}

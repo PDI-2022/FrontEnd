@@ -1,6 +1,6 @@
 class Header extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
             <a class="navbar-brand" onclick="returnHome()" style="display: flex; cursor: pointer;">
                 <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -8,12 +8,12 @@ class Header extends HTMLElement {
             </a>
         </nav>
         <div style="background-color: #fff; padding: 6px 0;"></div>
-          `
-    }
+          `;
+  }
 }
 class Footer extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <footer class="page-footer font-small blue pt-4">
           <div class="container-fluid text-center text-md-left">
                 <hr class="line"/>
@@ -33,12 +33,12 @@ class Footer extends HTMLElement {
                 </div>
             </div>
         </footer>
-      `
-    }
+      `;
+  }
 }
 class ModalLoading extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <div class="modal" id="modal-comp" role="dialog">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -59,12 +59,12 @@ class ModalLoading extends HTMLElement {
                 </div>
             </div>
         </div>
-      `
-    }
+      `;
+  }
 }
 class DownloadSection extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <section class="container-section">
             <div class="container">
                 <div class="mt-5 botao">
@@ -85,10 +85,29 @@ class DownloadSection extends HTMLElement {
                 </div>
             </div>
         </section>
-      `
-    }
+      `;
+  }
 }
-customElements.define('main-header', Header);
-customElements.define('main-footer', Footer);
-customElements.define('modal-loading', ModalLoading);
-customElements.define('download-section', DownloadSection);
+
+class ErrorModal extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <div id="error-modal-container">
+          <div class="error-text-container">
+              <img
+                  src="Assets/Icons/Error-icon.svg"
+                  class="error-icon"
+                  alt="Error icon"
+              />
+          <span class="error-text">Ops... Algo de errado aconteceu</span>
+          </div>
+          <button class="error-button">Voltar para o inicio</button>
+      </div>
+      `;
+  }
+}
+customElements.define("main-header", Header);
+customElements.define("main-footer", Footer);
+customElements.define("modal-loading", ModalLoading);
+customElements.define("download-section", DownloadSection);
+customElements.define("error-modal", ErrorModal);
