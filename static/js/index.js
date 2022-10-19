@@ -102,6 +102,7 @@ function stateHandlePage() {
     button.disabled = true;
     download = document.getElementsByTagName("download-section")[0];
     download.remove()
+    window.location.href ="/"
 }
 function goBack(){
     window.location.href = "/"

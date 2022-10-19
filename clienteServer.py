@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 import os
 
-template_dir = os.path.abspath('../FrontEnd/')
-static_dir = os.path.abspath('../FrontEnd/static')
+template_dir = os.path.abspath('./')
+static_dir = os.path.abspath('./static')
 
 app = Flask(__name__,template_folder=template_dir,static_folder=static_dir)
 
