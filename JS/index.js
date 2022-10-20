@@ -119,7 +119,7 @@ function updateTextAndIcon(input, name) {
 }
 function showTextAndIcon(input, name) {
     var elem1 = document.createElement('img')
-    elem1.src = "Assets/Icons/imgUpload.svg";
+    // elem1.src = "Assets/Icons/imgUpload.svg";
     var elem2 = document.createElement('label');
     elem2.setAttribute('id', `img-label-${input}`);
     elem2.innerHTML = name;
@@ -134,3 +134,29 @@ function showTextAndIcon(input, name) {
         document.getElementsByClassName('imgIntIconContainer')[0].appendChild(elem2);
     }
 }
+
+function readImage() {
+    if (this.files && this.files[0]) {
+        if(validateFormat(this.files[0].name)){
+            var file = new FileReader();
+            file.onload = function(e) {
+                document.getElementById("preview").src = e.target.result;
+            };
+            file.readAsDataURL(this.files[0]);
+        }
+    }
+}
+document.getElementById("imgButtonExt").addEventListener("change", readImage, false);
+
+function readImage2() {
+    if (this.files && this.files[0]) {
+        if(validateFormat(this.files[0].name)){
+            var file = new FileReader();
+            file.onload = function(e) {
+                document.getElementById("previews").src = e.target.result;
+            };
+            file.readAsDataURL(this.files[0]);
+        }
+    }
+}
+document.getElementById("imgButtonInt").addEventListener("change", readImage2, false);
