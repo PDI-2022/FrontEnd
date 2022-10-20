@@ -34,7 +34,7 @@ function uploadImgInput(event, input) {
 
 function makeBlob(input, itemAsFile) {
     const name = new String(itemAsFile.name)
-    if (name.endsWith(".jpeg") || name.endsWith(".jpg")) {
+    if (validateFormat(name)) {
         var reader = new FileReader();
         reader.onloadend = function () {
             var json = {
@@ -66,4 +66,8 @@ function makeBlob(input, itemAsFile) {
         window.alert("Ocorreu um erro com o upload da imagem " + `${input}` +
             " da semente:\nFormato inválido " + `${formatInvalid}`)
     }
+}
+
+function validateFormat(name){
+    return name.endsWith(".jpeg") || name.endsWith(".jpg")
 }

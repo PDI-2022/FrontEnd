@@ -137,22 +137,26 @@ function showTextAndIcon(input, name) {
 
 function readImage() {
     if (this.files && this.files[0]) {
-        var file = new FileReader();
-        file.onload = function(e) {
-            document.getElementById("preview").src = e.target.result;
-        };
-        file.readAsDataURL(this.files[0]);
+        if(validateFormat(this.files[0].name)){
+            var file = new FileReader();
+            file.onload = function(e) {
+                document.getElementById("preview").src = e.target.result;
+            };
+            file.readAsDataURL(this.files[0]);
+        }
     }
 }
 document.getElementById("imgButtonExt").addEventListener("change", readImage, false);
 
 function readImage2() {
     if (this.files && this.files[0]) {
-        var file = new FileReader();
-        file.onload = function(e) {
-            document.getElementById("previews").src = e.target.result;
-        };
-        file.readAsDataURL(this.files[0]);
+        if(validateFormat(this.files[0].name)){
+            var file = new FileReader();
+            file.onload = function(e) {
+                document.getElementById("previews").src = e.target.result;
+            };
+            file.readAsDataURL(this.files[0]);
+        }
     }
 }
 document.getElementById("imgButtonInt").addEventListener("change", readImage2, false);
