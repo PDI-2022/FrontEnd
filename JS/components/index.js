@@ -1,19 +1,25 @@
 class Header extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-        <nav class="navbar navbar-light  d-flex justify-content-center" style="background-color: #712F26;">
-            <a class="navbar-brand" onclick="returnHome()" style="display: flex; cursor: pointer;">
-                <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <div style="color: white; padding-left: 12px;">TetraSeed </div>
-            </a>
+  connectedCallback() {
+    this.innerHTML = `
+        <nav class="navbar navbar-light d-flex" style="background: #D92626;">
+            <div class="navbar-content d-flex justify-content-between" >
+                <a class="navbar-brand d-flex align-items-center " onclick="returnHome()" style="display: flex; cursor: pointer; gap: 16px;">
+                    <img src="Assets/Logo/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo TetraSeed">
+                    <img src="Assets/Logo/TetraSeed.svg" width="110" class="d-inline-block align-top" alt="TetraSeed">
+                </a>
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand" onclick="returnHome()">Home</a>
+                    <a class="navbar-brand" onclick="returnHome('about')">Sobre</a>
+                    <a class="navbar-brand" onclick="returnHome('team')">Equipe</a>
+                </div>
+            </div>
         </nav>
-        <div style="background-color: #fff; padding: 6px 0;"></div>
-          `
-    }
+        `;
+  }
 }
 class Footer extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <footer class="page-footer font-small blue pt-4">
           <div class="container-fluid text-center text-md-left">
                 <hr class="line"/>
@@ -33,12 +39,12 @@ class Footer extends HTMLElement {
                 </div>
             </div>
         </footer>
-      `
-    }
+      `;
+  }
 }
 class ModalLoading extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <div class="modal" id="modal-comp" role="dialog">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -59,12 +65,12 @@ class ModalLoading extends HTMLElement {
                 </div>
             </div>
         </div>
-      `
-    }
+      `;
+  }
 }
 class DownloadSection extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = ` 
+  connectedCallback() {
+    this.innerHTML = ` 
         <section class="container-section">
             <div class="container">
                 <div class="mt-5 botao">
@@ -85,10 +91,10 @@ class DownloadSection extends HTMLElement {
                 </div>
             </div>
         </section>
-      `
-    }
+      `;
+  }
 }
-customElements.define('main-header', Header);
-customElements.define('main-footer', Footer);
-customElements.define('modal-loading', ModalLoading);
-customElements.define('download-section', DownloadSection);
+customElements.define("main-header", Header);
+customElements.define("main-footer", Footer);
+customElements.define("modal-loading", ModalLoading);
+customElements.define("download-section", DownloadSection);
