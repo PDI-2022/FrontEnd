@@ -14,6 +14,7 @@
     <title>TetraSeed - Ferramenta de Classificação de sementes</title>
     <link rel="icon" type="image/x-icon" href="./static/Assets/Logo/logo.png">
     <link href="./static/stylesheets/style.css" rel="stylesheet">
+
 </head>
 
 <body style="background-color: #8D3B30">
@@ -71,7 +72,10 @@
 
     </section>
     <div id="botao" class="mt-5">
-        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Prosseguir</button>
+        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Gerar Relatório</button>
+    </div>
+    <div id="botao" class="mt-5">
+        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack(true)">Gerar Relatório com imagens</button>
     </div>
     <main-footer></main-footer>
 </body>

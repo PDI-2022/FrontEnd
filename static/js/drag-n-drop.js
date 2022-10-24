@@ -51,11 +51,7 @@ function makeBlob(input, itemAsFile) {
                 "image": `${reader.result.split("data:image/jpeg;base64,")[1]}`,
                 "extension": `${name.substring(name.lastIndexOf(".")+1)}`
             }
-            if (showIconAndName == true) {
-                showTextAndIcon(input, name);
-            } else {
-                updateTextAndIcon(input, name);
-            }
+            showIconAndName ? showTextAndIcon(input, name) : updateTextAndIcon(input, name)
         }
         reader.readAsDataURL(itemAsFile);
         if (input === "interna") {
