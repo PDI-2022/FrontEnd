@@ -1,0 +1,23 @@
+.image-replace {
+    width: 645px;
+    height: 398px;
+    background: #D9D9D9;
+}
+
+.about {
+    max-width: 100%;
+    justify-content: center;
+}
+
+.about-text {
+    max-width: 634px;
+    align-items: center;
+}
+
+.about-text h2 {
+    margin-bottom: 32px;
+}
+
+.about-text p {
+    text-indent: 32px;
+}

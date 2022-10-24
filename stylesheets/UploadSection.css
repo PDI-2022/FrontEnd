@@ -1,0 +1,30 @@
+.upload-section {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.images {
+    align-items: center;
+}
+
+.img-container {
+    height: 500px;
+    width: 634px;
+
+    border-radius: 20px;
+    border: 2px solid #f4bebe;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 12px;
+    margin-bottom: 12px;
+}
+
+.red-text {
+    color: #821717;
+}
+
+.img-titles {
+    align-items: center;
+}
