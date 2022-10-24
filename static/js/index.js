@@ -36,6 +36,8 @@ async function sendToBack(ReceiveImg = false) {
                 }
                 if(localStorage.getItem('csv') != '' && tableAux == 0){
                     $('#modal-comp').modal('hide');
+                    let botaoImgs = document.getElementById("botaoImgs")
+                    botaoImgs.remove()
                     ReceiveImg ? window.location.href = "/seeds" : generateDownloadScreen()
                     tableAux = 1
                 }
