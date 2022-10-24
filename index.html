@@ -12,8 +12,9 @@
     <link href=' http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 
     <title>TetraSeed - Ferramenta de Classificação de sementes</title>
-    <link rel="icon" type="image/x-icon" href="Assets/Logo/logo.png">
-    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./static/Assets/Logo/logo.png">
+    <link href="./static/stylesheets/style.css" rel="stylesheet">
+
 </head>
 
 <body style="background-color: #8D3B30">
@@ -40,6 +41,7 @@
                 </div>
             </div>
             <div class="imgExtIconContainer">
+                <img class="imgExtIconContainer" id="preview" src="" width="40%">
             </div>
         </div>
         <div class="container container-drag int">
@@ -63,20 +65,27 @@
                 </div>
             </div>
             <div class="imgIntIconContainer">
+                <img class="imgIntIconContainer" id="previews" src="" width="40%">
             </div>
         </div>
         <modal-loading></modal-loading>
-        <div id="botao" class="mt-5">
-            <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Prosseguir</button>
-        </div>
+
     </section>
-    <download-section id="download-section"></download-section>
+    <div id="botao" class="mt-5">
+        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Gerar Relatório</button>
+    </div>
+    <div id="botaoImgs" class="mt-5">
+        <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack(true)">Gerar Relatório com imagens</button>
+    </div>
     <main-footer></main-footer>
 </body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-<script src="JS/drag-n-drop.js"></script>
-<script src="JS/index.js"></script>
-<script src="JS/components/index.js"></script>
+
+<script src="{{ url_for('static', filename='js/drag-n-drop.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script src="{{ url_for('static', filename='js/components/index.js') }}"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
