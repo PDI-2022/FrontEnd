@@ -12,6 +12,7 @@ function dropHandler(event, input) {
         if (item.length > 0) {
             const itemAsFile = item[0].getAsFile()
             makeBlob(input, itemAsFile)
+            input == "interna" ? readImage():readImage2()
             stateHandle();
         }
         else {
@@ -44,7 +45,11 @@ function makeBlob(input, itemAsFile) {
     }
     const name = new String(itemAsFile.name)
     if (validateFormat(name)) {
+        let handleImgContainer = input == "interna" ? document.getElementsByClassName("imgIntIconContainer") : document.getElementsByClassName("imgExtIconContainer") 
         var reader = new FileReader();
+        reader.onload = function(e) {
+            handleImgContainer[1].src = e.target.result;
+        };
         reader.onloadend = function () {
             json[input] = {
                 "filename": `${name.substring(0,name.lastIndexOf("."))}`,
