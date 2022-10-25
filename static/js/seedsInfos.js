@@ -12,12 +12,13 @@ window.onload = function(){
 }
 
 function generateTable() {
-    itensPerPage = JSON.parse(localStorage.getItem('csv')).internSeeds.length + JSON.parse(localStorage.getItem('csv')).externSeeds.length -1 
+    itensPerPage = JSON.parse(localStorage.getItem('csv')).internSeeds.length + JSON.parse(localStorage.getItem('csv')).externSeeds.length
     csv = jsonToCsv()
     var array = csv.split("\n")
+
     var arrayCsv = []
     // -1 pois a ultima linha vem vazia
-    for(let i = 0; i < array.length-1; i++){
+    for(let i = 0; i < array.length; i++){
         arrayCsv.push(array[i].split(",")) 
     }
     clearScreenElement(body)
