@@ -21,48 +21,51 @@
         <a href="./index.html">
             <span class="logo flex-row">
                 <img src="Assets/Logo/logo.png" alt="logo">
-                <strong>Tetra</strong>Seed
+                <strong>Tetra</strong>
+                <div>Seed</div>
             </span>
         </a>
         <nav>
-            <a href="">Inicio</a>
-            <a href="">Sobre</a>
-            <a href="">Equipe</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#equipe">Equipe</a>
         </nav>
     </header>
     <main>
-        <section class="flex images">
-            <div class=" container-section upload-section flex-row" id="drag-drop-ext" ondrop="dropHandler(event,'externa');" ondragover="dragOverHandler(event,'externa');">
-                <div class="img-container flex">
+        <section id="inicio" class="flex images">
+            <div class=" container-section upload-section flex-row" >
+                <div class="img-container flex" id="drag-drop-ext" ondrop="dropHandler(event,'externa');" ondragover="dragOverHandler(event,'externa');">
                     <div class="img-titles flex">
                         <h2 class="img-title">Parte <span class="red-text">externa</span> da semente</h2>
                         <h3>Arraste e solte a imagem aqui</h3>
                     </div>
                     <!-- <legend class="img-legend">Nome</legend> -->
-                    <button class="pdi-button">
-                        Ou selecione o arquivo
-                        <!-- <input type="file" name="imgButtonExt" id="imgButtonExt" style="display: none;"
-                        accept="image/*" onchange="uploadImgInput(event,'externa')"> -->
-                    </button>
+                    <label class="label-button" for="imgButtonExt">Ou selecione o arquivo</label>
+                        
+                    <input class="input-button" type="file" name="imgButtonExt" id="imgButtonExt" style="display: none;"
+                    accept="image/*" onchange="uploadImgInput(event,'externa')">
                 </div>
-                <div class="img-container flex">
+                <div class="img-container flex" id="drag-drop-ext" ondrop="dropHandler(event,'interna');" ondragover="dragOverHandler(event,'interna');">
                     <div class="img-titles flex">
                         <h2 class="img-title">Parte <span  class="red-text">interna</span> da semente</h2>
                         <h3>Arraste e solte a imagem aqui</h3>
                     </div>
                     <!-- <legend class="img-legend">Nome</legend> -->
-                    <button class="pdi-button">
-                        Ou selecione o arquivo
-                        <!-- <input type="file" name="imgButtonExt" id="imgButtonExt" style="display: none;"
-                        accept="image/*" onchange="uploadImgInput(event,'externa')"> -->
-                    </button>
+                
+                    <label class="label-button" for="imgButtonInt">Ou selecione o arquivo</label>
+                        
+                    <input class="input-button" type="file" name="imgButtonInt" id="imgButtonInt" style="display: none;"
+                    accept="image/*" onchange="uploadImgInput(event,'interna')">
+                   
+                       
+                   
                 </div>
             </div>
             <button class="pdi-button">
                 Enviar
             </button>
         </section>
-        <section class="about flex-row">
+        <section id="sobre" class="about flex-row">
             <div class="about-text flex">
                 <h2><strong>Sobre a <span class="red-text">TetraSeed</span></strong></h2>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -73,7 +76,7 @@
 
             </div>
         </section>
-        <section class="team flex">
+        <section id="equipe" class="team flex">
             <h2 class="red-text">Equipe</h2>
             <p><span class="red-text"><strong>Tetra</strong>Seed </span>é um projeto supervisionado pelo Prof. Paulo Cesar Cortez feito em colaboração com a turma de 2022.2 da disciplina de Fundamentos de Processamento Digital de Imagens da Universidade Federal do Ceará.</p>
             <div class="team-list"></div>
@@ -133,19 +136,25 @@
             </div>
         </section> -->
     </main>
-    <footer>
+    <footer class="flex-row" style="align-items: flex-end">
         <a href="./index.html">
             <span class="logo flex-row">
                 <img src="Assets/Logo/logo.png" alt="logo">
-                <strong>Tetra</strong>Seed
+                <strong>Tetra</strong>
+                <div>Seed</div>
             </span>
         </a>
         <nav>
-            <a href="">Inicio</a>
-            <a href="">Sobre</a>
-            <a href="">Equipe</a>
+            <a href="">
+                <img src="./Assets/Icons/emailIcon.svg" alt="">
+            </a>
+            <a href="">
+                <img src="./Assets/Icons/githubIcon.svg" alt="">
+            </a>
+            <a href="">
+                <img src="./Assets/Icons/inIcon.svg" alt="">
+            </a>
         </nav>
-    </header>
     </footer>
     <!-- <download-section id="download-section"></download-section>
     <main-footer></main-footer> -->

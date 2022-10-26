@@ -1,25 +1,26 @@
+
 :root {
-    --bg-header: #D92626;
-    --color-header:#ffffff;
+    --bg-footer: #D92626;
+    --color-footer:#ffffff;
 }
 
-header {
+footer {
     padding: 25px 80px;
     height: 100px;
     justify-content: space-between;
     align-items: center;
 
-    background-color: var(--bg-header);
+    background-color: var(--bg-footer);
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
 
 }
 
-header nav a {
+footer nav a {
     font-size: 24px;
     margin-left: 30px;
 }
 
-header img {
+footer img {
     width: auto;
     height: 50px;
     filter: grayscale(100%);
@@ -28,19 +29,19 @@ header img {
 
 }
 
-header a {
-    color: var(--color-header);
+footer a {
+    color: var(--color-footer);
     margin-left: 10px;
     font-size: 32px;
 
 }
 
-header a:hover {
-    color: var(--color-header);
+footer a:hover {
+    color: var(--color-footer);
     text-decoration: none;
 }
 
-header img:hover {
+footer img:hover {
     filter: grayscale(0%);
 }
 
@@ -54,4 +55,3 @@ header img:hover {
         display: none;
     }
 }
- 
