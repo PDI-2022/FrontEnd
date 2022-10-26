@@ -49,3 +49,9 @@ header img:hover {
     justify-content: space-around;
     font-weight: 300;
 }
+@media (max-width:766px) {
+    .logo strong,.logo div {
+        display: none;
+    }
+}
+ 

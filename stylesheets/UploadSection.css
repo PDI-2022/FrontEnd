@@ -28,3 +28,18 @@
 .img-titles {
     align-items: center;
 }
+@media (max-width:766px) {
+    .img-container {
+        height: 250px;
+        width: 317px;
+    }
+    .img-titles h2{
+        font-size: 20px;
+    }
+    .img-titles h3{
+        font-size: 16px;
+    }
+    .img-titles .label-button{
+        width: 150px;
+    }
+}

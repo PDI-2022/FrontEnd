@@ -21,3 +21,9 @@
 .about-text p {
     text-indent: 32px;
 }
+
+@media (max-width:1420px) {
+    .image-replace {
+        display: none;
+    }
+}
