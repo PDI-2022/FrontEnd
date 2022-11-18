@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, render_template, request
 import os
 
@@ -8,7 +9,8 @@ app = Flask(__name__,template_folder=template_dir,static_folder=static_dir)
 
 @app.route("/", methods=['GET'])
 def index():
-    return render_template("index.html")
+    models = requests.get("http://localhost:5000/api/v1/models")
+    return render_template("index.html",models=models.json())
 
 @app.route("/seeds", methods=['GET'])
 def seeds():

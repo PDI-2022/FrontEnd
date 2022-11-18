@@ -2,7 +2,7 @@
 
 Para executar pela primeira vez localmente (Linux/Ubuntu):
 
-0. source ./venv/bin/activate
+0. source ./venv/Scripts/activate
 1. pip install -r requirements.txt
 2. chmod +x ./run.sh
 3. ./run.sh
