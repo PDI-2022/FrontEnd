@@ -40,19 +40,29 @@ class ModalLoading extends HTMLElement {
     connectedCallback() {
         this.innerHTML = ` 
         <div class="modal" id="modal-comp" role="dialog">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
+            <div style="width: 100vw;height: 100%;">
+                <div class="modal-content" style="height: 100%;background:rgba(247, 212, 212, 0.7)">
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <div class="spinner-border"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label id="modal-alert" class="form-text text-muted">
-                                    Estamos processando as imagens...
-                                </label>
+                        <div  style="display: flex;
+                        width: 100%;
+                        height: 100%;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;">
+                            <div class="col-md-4 offset-md-4" style="    display: flex;
+                            align-items: center;justify-content: center;margin-left:0 !important">
+                                <div class="spinner-border" style="border: none;
+                                border-top: .55em dotted #AE1E1E;
+                                border-left: .45em dotted #AE1E1E;
+                                border-right: .35em dotted #AE1E1E;
+                                border-bottom: .25em dotted #AE1E1E;
+                                width:150px;
+                                height:150px;
+                                animation: 3.25s linear infinite spinner-border;"
+                                ></div>
+                                <h3 id="modal-alert" class="form-text" style="color:#AE1E1E; margin-left:12px">
+                                    Carregando...
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -88,7 +98,42 @@ class DownloadSection extends HTMLElement {
       `
     }
 }
+
+class ModalError extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = ` 
+        <div class="modal" id="modal-erro" role="dialog">
+            <div style="width: 100vw;height: 100%;">
+                <div class="modal-content" style="height: 100%;background:rgba(247, 212, 212, 0.7)">
+                    <div class="modal-body">
+                        <div  style="display: flex;
+                        width: 100%;
+                        height: 100%;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;">
+                            <div class="col-md-4 offset-md-4" style="    display: flex;
+                            align-items: center;justify-content: center;margin-left:0 !important">
+                                <img src="/static/Assets/icons/cancel.svg">
+                                <h3 id="modal-alert" class="form-text" style="color:#AE1E1E; margin-left:12px">
+                                    Ops... Algo de errado aconteceu
+                                </h3>
+                            </div>
+                            <a href="/" class="defaultButton">
+                                <button type="button" class="btn btn-danger btn-lg botaoEnviar" >Voltar para o inicio </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      `
+    }
+}
+
+
 customElements.define('main-header', Header);
 customElements.define('main-footer', Footer);
 customElements.define('modal-loading', ModalLoading);
+customElements.define('modal-error', ModalError);
 customElements.define('download-section', DownloadSection);

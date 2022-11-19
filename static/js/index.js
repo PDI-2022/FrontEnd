@@ -25,6 +25,11 @@ async function sendToBack(ReceiveImg = false) {
         req.addEventListener("readystatechange", function () {
             if (this.readyState === 4 && req.status != 200) {
                 $('#modal-comp').modal('hide'); 
+                $('#modal-erro').modal({
+                    show:true,
+                    backdrop: 'static',
+                    keyboard: false
+                })
             }
             else if(req.status == 200){
                 localStorage.setItem("csv",req.response)

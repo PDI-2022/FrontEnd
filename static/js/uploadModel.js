@@ -62,7 +62,8 @@ function validateFile(itemAsFile,name) {
     if (validateFormat(format)) {
 
         formData.append("model",itemAsFile)
-
+        let fileContainer = document.querySelector('#file-label')
+        !fileContainer ? showTextAndIcon(name) : updateTextAndIcon(name)
         let button = document.querySelector("#sendModelBtn");
         stateHandle(button)
     }
@@ -76,6 +77,14 @@ function validateFormat(name){
 }
 
 async function sendModel(){
+    let button = document.querySelector("#sendModelBtn");
+    button.disabled = true
+    $('#modal-comp').modal({
+        show:true,
+        backdrop: 'static',
+        keyboard: false
+    });  
+
     let url = "http://127.0.0.1:5000/api/v1/models"
 
     await fetch(url,{
@@ -84,7 +93,32 @@ async function sendModel(){
     }).then(response=>{
         window.location.href = "/"
     }).catch(err=>{
+        button.disabled = false
+        $('#modal-erro').modal({
+            show:true,
+            backdrop: 'static',
+            keyboard: false
+        })
         console.error(err)
+    }).finally(_=>{
+        $('#modal-comp').modal('hide');
     })
+}
+function showTextAndIcon(name) {
+    var elem1 = document.createElement('img')
+    var elem2 = document.createElement('label');
+    elem2.setAttribute('id', `file-label`);
+    elem2.innerHTML = name;
+    elem1.classList.add("icon-upload");
+    elem2.classList.add("label-icon-upload");
+    document.getElementsByClassName('fileContainer')[0].appendChild(elem1);
+    document.getElementsByClassName('fileContainer')[0].appendChild(elem2);
+
+}
+
+function updateTextAndIcon(name) {
+    let id = `file-label`;
+    let imgLabel = document.querySelector("#" + id);
+    imgLabel.innerHTML = name;
 }
 

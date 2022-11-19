@@ -9,8 +9,13 @@ app = Flask(__name__,template_folder=template_dir,static_folder=static_dir)
 
 @app.route("/", methods=['GET'])
 def index():
-    models = requests.get("http://localhost:5000/api/v1/models")
-    return render_template("index.html",models=models.json())
+    try:
+        models = requests.get("http://localhost:5000/api/v1/models")
+        modelJson = models.json()
+        print(models)
+    except:
+        modelJson = {"result":{"name":"","id":""}}
+    return render_template("index.html",models=modelJson)
 
 @app.route("/seeds", methods=['GET'])
 def seeds():
