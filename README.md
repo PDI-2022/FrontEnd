@@ -12,6 +12,6 @@ Após executar o passo anterior pela primeira vez, basta executar:
 
 1. ./run.sh
 
-Erros mapeados:
-# Maximum Path Length Limitation
+# Erros mapeados:
+- Maximum Path Length Limitation
 Solução --> reinstalar o python, e, no ultimo passo, clicar em "disable path length limit".
