@@ -1,6 +1,6 @@
 var currentPage = 1
 var itensPerPage 
-const mainFooter = document.getElementsByTagName("main-footer")[0]
+const mainFooter = document.getElementsByTagName("footer")[0]
 const body = document.getElementsByTagName("body")[0]
 var csv
 window.onload = function(){
@@ -42,7 +42,7 @@ function generateTable() {
 function clearScreenElement(){
     let body = document.getElementsByTagName("body")[0]
 
-    const mainNav = document.getElementsByTagName("main-header")[0]
+    const mainNav = document.getElementsByTagName("header")[0]
     body.appendChild(mainNav)
     mainFooter.remove()
 }

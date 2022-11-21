@@ -44,6 +44,19 @@ td {
   width: 200px;
   height: 200px;
 }
+
+.defaultButton button{
+  border-radius: 30px;
+}
+
+#download-section#download-sectio\+n{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
 @media (max-width:1040px) and (min-width:621px) {
   .imgs-container{
     grid-template-columns: 100%;

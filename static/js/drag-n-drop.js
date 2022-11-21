@@ -2,6 +2,12 @@ var json={
     "interna":"",
     "externa":""
 }
+const validFormatsImgs = [
+    ".jpeg",
+    ".jpg",
+    ".png",
+    ".vsg"
+]
 function dropHandler(event, input) {
     try {
         event.preventDefault();
@@ -43,8 +49,8 @@ function makeBlob(input, itemAsFile) {
     if (json[input] == "") {
         showIconAndName = true;
     }
-    const name = new String(itemAsFile.name)
-    if (validateFormat(name)) {
+    let name = new String(itemAsFile.name)
+    if (validateFormat(name.substring(name.lastIndexOf(".")))) {
         let handleImgContainer = input == "interna" ? document.getElementsByClassName("imgIntIconContainer") : document.getElementsByClassName("imgExtIconContainer") 
         var reader = new FileReader();
         reader.onload = function(e) {
@@ -74,5 +80,5 @@ function makeBlob(input, itemAsFile) {
 }
 
 function validateFormat(name){
-    return name.endsWith(".jpeg") || name.endsWith(".jpg")
+    return validFormatsImgs.includes(name)
 }
