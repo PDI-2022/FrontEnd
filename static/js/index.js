@@ -1,6 +1,29 @@
-window.onload = function () {
-    localStorage.clear();
+let body = {
+    main:"",
+    footer:"", 
+    header:""
 }
+
+function getPageBody(){
+    body.main = document.querySelector("main")
+    body.footer = document.querySelector("footer")
+    body.header = document.querySelector("header")
+}
+
+window.onload = function () {
+    let modelHolder = document.querySelector(".modelHolder")
+    getPageBody()
+    let inputClass = document.querySelector("#InputClass")
+
+    localStorage.clear();
+    modelHolder.style.display = "none"
+    
+    inputClass.addEventListener("change",()=>{
+        let modelHolder = document.querySelector(".modelHolder")
+        modelHolder.style.display = inputClass.checked ? "flex" : "none" 
+    })
+}
+
 function returnHome(){
     window.location.href = '/'
 }
@@ -8,20 +31,27 @@ function dragOverHandler(event, input) {
     event.preventDefault();
 }
 
-async function sendToBack(ReceiveImg = false) {
+async function sendToBack() {
+    let displayClassificationInfos = document.querySelector("#InputClass").checked
+    let generatePageWithImages = document.querySelector("#InputPagaWithImages").checked
+    let modelId = displayClassificationInfos ? document.querySelector("select").value : -1
     var tableAux = 0
 
     if(!!json["interna"] && !!json["externa"]){
         var req = new XMLHttpRequest();
-        const url = ReceiveImg ? new String("http://127.0.0.1:5000/api/v1/upload/wtImg") : new String("http://127.0.0.1:5000/api/v1/upload");
+        const url = new String("http://127.0.0.1:5000/api/v1/process");
         req.open('POST',url,true);
         req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        var internalImg = JSON.stringify(json["interna"])
-        var externalImg = JSON.stringify(json["externa"])
+
         data = {
-            internalImg,
-            externalImg
+            "displayClassificationInfos":displayClassificationInfos,
+            "modelId":modelId,
+            "generatePageWithImages":generatePageWithImages,
+            "internalImg":json["interna"],
+            "externalImg":json["externa"]
         }
+        console.log(JSON.stringify(data))
+
         req.addEventListener("readystatechange", function () {
             if (this.readyState === 4 && req.status != 200) {
                 $('#modal-comp').modal('hide'); 
@@ -41,9 +71,18 @@ async function sendToBack(ReceiveImg = false) {
                 }
                 if(localStorage.getItem('csv') != '' && tableAux == 0){
                     $('#modal-comp').modal('hide');
-                    let botaoImgs = document.getElementById("botaoImgs")
-                    botaoImgs.remove()
-                    ReceiveImg ? window.location.href = "/seeds" : generateDownloadScreen()
+
+                    if(generatePageWithImages){
+                        window.location.href = "/seeds"
+                        $('#modal-redirecting').modal({
+                            show:true,
+                            backdrop: 'static',
+                            keyboard: false
+                        })
+                    }
+                    else{
+                        generateDownloadScreen()
+                    }
                     tableAux = 1
                 }
                 if (showIconAndName == true) {
@@ -65,21 +104,15 @@ async function sendToBack(ReceiveImg = false) {
 }
 
 function generateDownloadScreen(){
-    let main = document.getElementById("main-section");
-    let botao = document.getElementById("botao");
-    let body = document.getElementsByTagName("body")[0]
-    let footer = document.getElementsByTagName("main-footer")[0]
+    let selectBody = document.querySelector("body")
+    selectBody.setAttribute("class","downloadScreen")
+    selectBody.removeChild(body.main)
+    selectBody.removeChild(body.footer)
     if(!document.getElementsByTagName("download-section")[0]){
-        let download = document.createElement("download-section");
-        download.setAttribute("id","download-sectio+n")
-        body.appendChild(download)
+        let download = document.createElement("download-page");
+        selectBody.appendChild(download)
     }
-
-    main.style.display = "none"
-    botao.style.display = "none"
-    footer.remove()
-
-    body.appendChild(footer)
+    selectBody.appendChild(body.footer)
 }
 
 function downloadCsv() {
@@ -94,9 +127,10 @@ function downloadCsv() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        stateHandlePage();
+        window.location.href ="/"
     }
 }
+
 let buttons = document.querySelectorAll(".botaoEnviar");
 buttons.forEach(button => {
     button.disabled = true;
@@ -104,23 +138,12 @@ buttons.forEach(button => {
 let buttonExt = false;
 let buttonInt = false;
 
-function stateHandlePage() {
-    let main = document.getElementById("main-section");
-    let botao = document.getElementById("botao");
-    main.style.display = 'flex';
-    botao.style.display = 'block';
-    buttons.forEach(button => {
-        button.disabled = true;
-    });
-    download = document.getElementsByTagName("download-section")[0];
-    download.remove()
-    window.location.href ="/"
-}
 function goBack(){
     window.location.href = "/"
 }
 
 function stateHandle() {
+
     buttons.forEach(button => {
         button.disabled = buttonExt && buttonInt ? false : true;
     }); 

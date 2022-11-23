@@ -22,6 +22,7 @@
 <body style="background-color: #FAFAFA">
     <modal-loading></modal-loading>
     <modal-error></modal-error>
+    <modal-redirecting></modal-redirecting>
     <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light logo">
             <a href="/" class="navbar-brand">
@@ -82,7 +83,7 @@
 
     </div>
 
-    <footer class="flex-row" style="display: flex;align-items: center">
+    <footer class="flex-row" style="display: flex;align-items: center;bottom: 0;">
         <a href="/">
             <span class="logo flex-row">
                 <img src="{{ url_for('static', filename='Assets/Logo/logo.png') }}" alt="logo">

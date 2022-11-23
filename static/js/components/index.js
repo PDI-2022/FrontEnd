@@ -72,16 +72,67 @@ class ModalLoading extends HTMLElement {
       `
     }
 }
+
+class ModalRedirecting extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = ` 
+        <div class="modal" id="modal-redirecting" role="dialog">
+            <div style="width: 100vw;height: 100%;">
+                <div class="modal-content" style="height: 100%;background:rgba(247, 212, 212, 0.7)">
+                    <div class="modal-body">
+                        <div  style="display: flex;
+                        width: 100%;
+                        height: 100%;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;">
+                            <div class="col-md-4 offset-md-4" style="    display: flex;
+                            align-items: center;justify-content: center;margin-left:0 !important">
+                                <div class="spinner-border" style="border: none;
+                                border-top: .55em dotted #AE1E1E;
+                                border-left: .45em dotted #AE1E1E;
+                                border-right: .35em dotted #AE1E1E;
+                                border-bottom: .25em dotted #AE1E1E;
+                                width:150px;
+                                height:150px;
+                                animation: 3.25s linear infinite spinner-border;"
+                                ></div>
+                                <h3 id="modal-alert" class="form-text" style="color:#AE1E1E; margin-left:12px">
+                                    Redirecionando...
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      `
+    }
+}
+
+class DownloadPage extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = ` 
+        <section style="flex-direction: column;align-items: center;">
+            <div class="img-titles flex">
+                <h2 class="img-title">Seu download está <span class="red-text">Pronto</span> !</h2>
+            </div>
+            <download-section></download-section>
+        </section>
+      `
+    }
+}
+
 class DownloadSection extends HTMLElement {
     connectedCallback() {
         this.innerHTML = ` 
         <section class="container-section">
             <div class="container">
-                <div class="mt-5 botao">
+                <div class="mt-5 botao defaultButton">
                     <button type="button" class="btn btn-danger btn-lg" id="botaoDownload" onclick="downloadCsv()">Download</button>
                     <div class="arquivo"></div>
                 </div>
-                <div class="mt-5 botao">
+                <div class="mt-5 botao defaultButton white">
                     <button 
                         type="button" 
                         class="btn btn-secondary btn-lg botaoVoltar" 
@@ -135,5 +186,10 @@ class ModalError extends HTMLElement {
 customElements.define('main-header', Header);
 customElements.define('main-footer', Footer);
 customElements.define('modal-loading', ModalLoading);
+customElements.define('modal-redirecting',ModalRedirecting);
 customElements.define('modal-error', ModalError);
 customElements.define('download-section', DownloadSection);
+customElements.define('download-page', DownloadPage);
+
+
+

@@ -10,6 +10,13 @@
 }
 
 .defaultButton button{
+    width: 200px;
+    border-radius: 30px;
+}
+.white button{
+    background-color: white;
+    color: #821717;
+    border: 1px solid #D92626;
     border-radius: 30px;
 }
 

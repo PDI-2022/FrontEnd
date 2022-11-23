@@ -106,12 +106,22 @@
                 </div>
 
             </div>
+
+            <div class="mainCheckbox">
+                <input type="checkbox" name="InputName" id="InputClass">
+                <label class="img-title" for="InputClass">Processar as classes das sementes?</label>
+            </div>
+            <div class="mainCheckbox">
+                <input type="checkbox" name="InputName" id="InputPagaWithImages">
+                <label class="img-title" for="InputPagaWithImages">Gerar página com as imagens?</label>
+            </div>
+
             <!-- /Necessário paginar/ -->
             <div class="modelHolder img-titles">
                 <h3>Selecione o modelo a ser utilizado</h3>
                 <select name="model">
                     {% for model in models.result %}
-                    <option value=`{{model.id}}`> {{model.name}}</option>
+                    <option value={{model.id}}> {{model.name}}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -119,16 +129,13 @@
 
             <modal-loading></modal-loading>
             <modal-error></modal-error>
+            <modal-redirecting></modal-redirecting>
 
         </section>
         <div class="IndexButtonsSend">
             <div id="botao" class="mt-5 defaultButton">
                 <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack()">Gerar
                     Relatório</button>
-            </div>
-            <div id="botaoImgs" class="mt-5 defaultButton">
-                <button type="button" class="btn btn-danger btn-lg botaoEnviar" onclick="sendToBack(true)">Gerar Relatório
-                    com imagens</button>
             </div>
         </div>
 
@@ -332,7 +339,7 @@
     </section>
         
     </main>
-    <footer class="flex-row" style="display: flex;align-items: center">
+    <footer class="flex-row" style="display: flex;align-items: center;bottom: 0;">
         <a href="/">
             <span class="logo flex-row">
                 <img src="{{ url_for('static', filename='Assets/Logo/logo.png') }}" alt="logo">
