@@ -84,16 +84,22 @@ async function sendModel(){
         backdrop: 'static',
         keyboard: false
     });  
-
     let url = "http://127.0.0.1:5000/api/v1/models"
-
     await fetch(url,{
           method: 'POST',
           body: formData
     }).then(response=>{
+        $('#modal-comp').modal('hide');
+        $('#modal-redirecting').modal({
+            show:true,
+            backdrop: 'static',
+            keyboard: false
+        })
         window.location.href = "/"
+
     }).catch(err=>{
         button.disabled = false
+        $('#modal-comp').modal('hide');
         $('#modal-erro').modal({
             show:true,
             backdrop: 'static',

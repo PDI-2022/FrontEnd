@@ -32,6 +32,7 @@ function generateTable() {
     if(!document.getElementsByTagName("download-section")[0]){
         let download = document.createElement("download-section");
         download.setAttribute("id","download-sectio+n")
+        download.setAttribute("class","downloadButtonSection")
         body.appendChild(download)
     }
 
