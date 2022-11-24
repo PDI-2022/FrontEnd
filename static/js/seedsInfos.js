@@ -14,6 +14,9 @@ window.onload = function(){
 function generateTable() {
     itensPerPage = JSON.parse(localStorage.getItem('csv')).internSeeds.length + JSON.parse(localStorage.getItem('csv')).externSeeds.length
     csv = jsonToCsv()
+
+    console.log(csv)
+
     var array = csv.split("\n")
 
     var arrayCsv = []

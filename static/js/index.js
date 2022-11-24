@@ -39,6 +39,7 @@ async function sendToBack() {
 
     if(!!json["interna"] && !!json["externa"]){
         var req = new XMLHttpRequest();
+        req.timeout = 10 * 60 * 1000;
         const url = new String("http://127.0.0.1:5000/api/v1/process");
         req.open('POST',url,true);
         req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -60,7 +61,7 @@ async function sendToBack() {
                     keyboard: false
                 })
             }
-            else if(req.status == 200){
+            else if(this.readyState === 4 && req.status == 200){
                 localStorage.setItem("csv",req.response)
                 $('#modal-comp').modal('hide'); 
 
