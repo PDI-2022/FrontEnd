@@ -50,7 +50,6 @@ async function sendToBack() {
             "internalImg":json["interna"],
             "externalImg":json["externa"]
         }
-        console.log(JSON.stringify(data))
 
         req.addEventListener("readystatechange", function () {
             if (this.readyState === 4 && req.status != 200) {

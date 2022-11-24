@@ -46,7 +46,29 @@ td {
 }
 
 .defaultButton button{
+  width: 200px;
   border-radius: 30px;
+}
+.white button{
+  background-color: white;
+  color: #821717;
+  border: 1px solid #D92626;
+  border-radius: 30px;
+}
+.downloadScreen{
+  display: flex;
+  background-color: rgb(250, 250, 250);
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.downloadButtonSection{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 48px;
 }
 
 #download-section#download-sectio\+n{
