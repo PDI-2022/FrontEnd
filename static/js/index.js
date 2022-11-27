@@ -3,6 +3,7 @@ let body = {
     footer:"", 
     header:""
 }
+var applicationBody
 
 function getPageBody(){
     body.main = document.querySelector("main")
@@ -10,9 +11,29 @@ function getPageBody(){
     body.header = document.querySelector("header")
 }
 
+function displayApplication(){
+    applicationBody = document.querySelector("body")
+    applicationBody.removeAttribute("class")
+    sessionStorage.setItem("displayWelcomeScreen","false")
+    let animation = document.querySelector("#animation")
+    let main = document.querySelector("body")
+    main.removeChild(animation)
+}
+
 window.onload = function () {
+
     let modelHolder = document.querySelector(".modelHolder")
     getPageBody()
+    let displayWelcomeScreen = sessionStorage.getItem("displayWelcomeScreen")
+
+    if(displayWelcomeScreen == "false"){
+        displayApplication()
+    }
+    else{
+        applicationBody = document.querySelector("body")
+        applicationBody.setAttribute("class","disableOverflow")
+    }
+    
     let inputClass = document.querySelector("#InputClass")
 
     localStorage.clear();

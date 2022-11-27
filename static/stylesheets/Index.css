@@ -19,6 +19,9 @@ html{
     align-items: baseline;
     gap: 12px;
 }
+.disableOverflow{
+    overflow-y: hidden;
+}
 .downloadScreen{
     display: flex;
     background-color: rgb(250, 250, 250);
