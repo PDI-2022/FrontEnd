@@ -77,7 +77,18 @@
         </nav>
     </header>
     <main>
-
+        <section id="sobre" class="about">
+            <div class="about-text flex">
+                <h1><strong>Análise de imagens de sementes de Feijão Caupi<span>.</span></strong></h1>
+                <p>O projeto <strong>TetraSeed</strong> surgiu com o intuito de automatizar e auxiliar a pesquisa feita pela docente do PROGRAMA DE PÓS-GRADUAÇÃO EM AGRONOMIA/FITOTECNIA, Lucimara Ribeiro Venial, no qual é realizado TESTE DE TETAZÓLIO EM SEMENTES DE FEIJÃO DE CAUPI</p>
+                <br/>
+                <p>O projeto visa analisar as imagens de sementes dessa espécie e gerar os resultados de % de cor de vermelho carmim clara, % de cor de vermelho carmim escura, % de cor de branco, % de cor de branco leitoso, detecção de buracos nas sementes, e classificar elas de acordo com os parâmetros estabelecidos.</p>
+                <button onclick="goHome()"><strong>ANALISAR</strong></button>
+            </div>
+            <div class="image-replace">
+                <img src="{{ url_for('static', filename='Assets/Images/about-image.jpg') }}">
+            </div>
+        </section>
         <section id="inicio" class="flex images">
 
             <div class=" container-section upload-section">
@@ -156,19 +167,6 @@
                     Relatório</button>
             </div>
         </div>
-
-        <section id="sobre" class="about">
-            <div class="about-text flex">
-                <h2><strong>Sobre a <span class="red-text">TetraSeed</span></strong></h2>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <br/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="image-replace">
-                <img src="{{ url_for('static', filename='Assets/Logo/logo.png') }}"
-                style="width: 60%; height: 60%;">
-            </div>
-        </section>
         <section id="equipe" class="team flex">
             <h2 class="red-text">Equipe</h2>
             <p><span class="red-text"><strong>Tetra</strong>Seed </span>é um projeto supervisionado pelo Prof. Paulo Cesar Cortez feito em colaboração com a turma de 2022.2 da disciplina de Fundamentos de Processamento Digital de Imagens da Universidade Federal do Ceará.</p>
