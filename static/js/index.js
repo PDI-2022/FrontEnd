@@ -163,6 +163,10 @@ function goBack(){
     window.location.href = "/"
 }
 
+function goHome(){
+    window.location.href = "/#inicio"
+}
+
 function stateHandle() {
 
     buttons.forEach(button => {
